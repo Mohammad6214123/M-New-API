@@ -84,8 +84,9 @@ h1{
 }
 
 .prev-button, .next-button {
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 12px;
+  background-color: greenyellow;
   cursor: pointer;
 }
 
