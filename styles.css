@@ -110,3 +110,26 @@ h1{
 .inputsearch::placeholder {
   color: #999;             
 }
+
+@media (max-width: 320px) {
+  header, footer {
+    text-align: center;  
+    padding: 10px;  
+  }
+
+  h1 {
+    font-size: 20px; 
+    font-weight: normal;  
+  }
+
+  .inputsearch {
+    width: 100%;  
+    font-size: 14px; 
+  }
+
+  .showbutton, .searchbutton {
+    font-size: 12px;  
+    padding: 6px;  
+  }
+}
+
