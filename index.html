@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Display</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="init()">
+    <header>
+      <div>
+        <h1>Pokodex Project</h1>
+      </div>
+      <input type="text" id="search" class="inputsearch" placeholder="Search Pokémon...">
+      <button onclick="searchPokemon()" class="searchbutton">Search</button>
+    </header>
+    <div class="pokemon-container" id="pokemon-container"></div>
+    <button id="load-more" onclick="loadMorePokemon()" class="showbutton">
+      Show more Pokemon
+    </button>
+    <dialog id="pokemon-dialog" class="dialogbox">
+      <div id="pokemon-details"></div>
+  
+      <div class="navigation-buttons">
+        <button onclick="previousPokemon()" class="prev-button">&#8592; Previous</button>
+        <button onclick="nextPokemon()" class="next-button">Next &#8594;</button>
+      </div>
+      
+      <button onclick="closePokemondialog()" class="closebutton">Close</button>
+    </dialog>
+    
+    <footer>
+      <p>Footer Text</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+body { 
+  font-family: Arial, sans-serif; 
+}
+
+header, footer { 
+  text-align: right; 
+  padding: 20px; 
+  background-color: #1bcf6c; 
+}
+
+h1{
+  color: white;
+  font-weight: 50px;
+  font-size: large;
+  display: flex;
+}
+.pokemon-container { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  background: beige;
+}
+
+.pokemon-card { 
+  width: 150px; 
+  margin: 10px; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  text-align: center; 
+  cursor: pointer; 
+ 
+}
+
+.pokemon-card img { 
+  width: 100px; 
+  height: 100px; 
+  
+}
+
+.pokemon-card.active { 
+  width: 300px; 
+}
+
+.showbutton{
+  padding: 8px;
+  color: white;
+  background-color: #1bcf6c;
+  font-size: 2px solid;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.dialogbox{
+  width: 10rem;  
+  height: fit-content; 
+  text-align: center;
+  background-color: #1bcf6c;
+  color: white;
+  cursor: pointer;
+}
+
+.closebutton{
+  border-radius: 8px;
+  background-color: #1bcf6c;
+  color: white;
+  cursor: pointer;
+}
+
+.searchbutton{
+  border-radius: 8px;
+  background-color: #1bcf6c;
+  color: white;
+}
+
+.inputsearch{
+  border-radius: 8px;
+  color: white;
+}
+
+.navigation-buttons {  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.prev-button, .next-button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closebutton {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #1bcf6c;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.inputsearch {
+  font-size: 16px;          
+  color: #000;              
+  background-color: #fff;             
+  border: 1px solid #ccc;  
+  width: 200px;             
+}
+
+.inputsearch::placeholder {
+  color: #999;             
+}
