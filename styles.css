@@ -49,6 +49,7 @@ h1{
   font-size: 2px solid;
   margin-bottom: 10px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .dialogbox{

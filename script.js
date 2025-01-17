@@ -66,27 +66,43 @@ function closePokemondialog() {
 async function searchPokemon() {
     const query = document.getElementById('search').value.trim().toLowerCase();
     const errorMessage = document.getElementById('error-message');
+    
     if (query.length < 3) {
-        errorMessage.innerText = "Please enter the Complete Pokemon Name.";
+        errorMessage.innerText = "Please enter at least 3 characters for the Pokémon name.";
         return;
     } else {
         errorMessage.innerText = "";
     }
-    const url = `https://pokeapi.co/api/v2/pokemon/${query}`;
-    try {
+    document.getElementById('pokemon-container').innerHTML = '';
 
-        
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Pokemon not found");
-        const pokemon = await res.json();
-        allPokemon = [{ id: pokemon.id, name: pokemon.name, sprite: pokemon.sprites.front_default }];
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=500`);
+        const data = await res.json();
+        const allPokemons = data.results;
+        const matchedPokemons = allPokemons.filter(pokemon => pokemon.name.toLowerCase().includes(query));
+        if (matchedPokemons.length === 0) {
+            document.getElementById('pokemon-container').innerHTML = `<p>No Pokémon found with that name.</p>`;
+            return;
+        }
+
+        const pokemonDetails = await Promise.all(matchedPokemons.map(pokemon => fetch(pokemon.url).then(res => res.json())));
+        const detailedPokemons = pokemonDetails.map(pokemon => ({
+            id: pokemon.id,
+            name: pokemon.name,
+            sprite: pokemon.sprites.front_default
+        }));
+
+        // Set the global array of Pokémon and render
+        allPokemon = detailedPokemons;
         currentPokemonIndex = 0;
         renderPokemon();
         updateShowMoreButton();
     } catch (error) {
-        document.getElementById('pokemon-container').innerHTML = `<p>No Pokémon found with that name.</p>`;
+        console.error("Error fetching Pokémon data:", error);
+        document.getElementById('pokemon-container').innerHTML = `<p>There was an error fetching Pokémon data.</p>`;
     }
 }
+
 
 function renderPokemonSearch(pokemon) {
     document.getElementById('pokemon-container').innerHTML = `
